@@ -28,6 +28,12 @@ error_val   = zeros(m, 1);
 %               error_val(i) should give you the errors
 %               obtained after training on i examples.
 %
+for i=1:m
+  [theta] = trainLinearReg(X(1:i,:),y(1:i,:),0);
+  error_train(i)=linearRegCostFunction(X(1:i,:),y(1:i,:), theta, 0);
+  error_val(i)=linearRegCostFunction(Xval,yval, theta, 0);
+end
+
 % Note: You should evaluate the training error on the first i training
 %       examples (i.e., X(1:i, :) and y(1:i)).
 %
